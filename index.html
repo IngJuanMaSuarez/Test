@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- MapLibre GL -->
+    <script src='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js'></script>
+    <link href='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css' rel='stylesheet' />
+
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="main-container">
+
+        <div>
+            <input type="text" id="userInput" placeholder="Dirección">
+            <button id="acceptButton">Buscar</button>
+            <span id="routeDistance">Distancia: -- km</span>
+            <button id="clearRouteButton">❌ Limpiar Ruta</button>
+        </div>
+
+        <div id="legend-container">
+            <button id="toggle-legend">🗂️ Mostrar/Ocultar Leyenda</button>
+            <div id="legend" class="legend"></div>
+        </div>
+
+        <!-- Menú desplegable para favoritos -->
+        <div id="favorites-menu">
+            <button id="favorites-toggle">⭐ Favoritos</button>
+            <div id="favorites-list" class="hidden">
+                <p>No hay puntos guardados.</p>
+            </div>
+        </div>
+
+        <select id="categoryFilter">
+            <option value="all">Todas las categorías</option>
+            <option value="1">Ambiente y desarrollo sostenible</option>
+            <option value="2">Comercio industria y turismo</option>
+            <option value="3">Cultura y ocio</option>
+            <option value="4">Deporte y recreación</option>
+            <option value="5">Educación</option>
+            <option value="6">Minas y energía</option>
+            <option value="7">Salud y protección social</option>
+            <option value="8">Seguridad y defensa</option>
+            <option value="9">Transporte</option>
+            <option value="10">Unidad administrativa</option>
+            <option value="11">Vivienda, ciudad y territorio</option>
+            <option value="12">Economia y finanzas</option>
+            <option value="13">Funcion publica</option>
+            <option value="14">Otro</option>
+        </select>
+
+        <div id="map"></div>
+
+    </div>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
