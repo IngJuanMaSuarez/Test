@@ -21,6 +21,7 @@ navigator.geolocation.getCurrentPosition((position) => {
 
     const map = InicializarMapa('map', [puntoInicial.longitud, puntoInicial.latitud], 12);
     CargarCapas(map, './data/airports_world.json');
+    
     // AgregarEventosPopUps(map)
     AgregarEventosPopUps(map, puntoInicial, (map, inicio, destino) => calcularRuta(map, inicio, destino, apiKeyLocationIQ));
     ConfigurarBusqueda(map, puntoInicial, inputField, acceptButton, apiKeyHere, apiKeyLocationIQ)

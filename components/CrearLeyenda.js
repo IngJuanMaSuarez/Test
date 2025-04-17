@@ -31,6 +31,9 @@ export function CrearLeyenda(){
         colorBox.className = "legend-color";
         colorBox.style.backgroundColor = cat.color;
 
+        // También añadir la clase para compatibilidad con CSS
+        colorBox.classList.add(`category-${cat.id}`);
+
         let label = document.createElement("span");
         label.textContent = cat.name;
 
@@ -40,16 +43,31 @@ export function CrearLeyenda(){
     });
 
     // Manejo de la visibilidad de la leyenda
-    const legendContainer = document.getElementById("legend-container");
     const toggleButton = document.getElementById("toggle-legend");
-
+    
+    // Mostrar la leyenda inicialmente
+    legend.style.display = "block";
+    
+    // Configurar estado inicial del botón
+    toggleButton.textContent = "Ocultar";
+    
     toggleButton.addEventListener("click", () => {
         if (legend.style.display === "none") {
             legend.style.display = "block";
-            toggleButton.textContent = "🗂️ Ocultar Leyenda";
+            toggleButton.textContent = "Ocultar";
         } else {
             legend.style.display = "none";
-            toggleButton.textContent = "🗂️ Mostrar Leyenda";
+            toggleButton.textContent = "Mostrar";
         }
     });
+
+    // Añadir funcionalidad para mostrar/ocultar sidebar en dispositivos móviles
+    const menuToggle = document.getElementById("menu-toggle");
+    const sidebar = document.getElementById("sidebar");
+    
+    if (menuToggle) {
+        menuToggle.addEventListener("click", () => {
+            sidebar.classList.toggle("active");
+        });
+    }
 }
